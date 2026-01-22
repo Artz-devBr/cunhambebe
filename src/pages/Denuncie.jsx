@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Upload, CheckCircle, AlertCircle, Loader2, Phone, Clock } from 'lucide-react';
+import bannerImg from '../assets/denuncie_jonny/mata-atlantica.jpg';
 
 const Denuncie = () => {
     const containerRef = useRef(null);
+    const heroRef = useRef(null);
     const formRef = useRef(null);
     const faunaFieldsRef = useRef(null);
     
@@ -35,10 +37,24 @@ const Denuncie = () => {
     // Animation with gsap.context
     useEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.from(".anim-title", {
-                y: -50,
+            // Hero Animations
+            gsap.fromTo(".hero-img", 
+                { scale: 1.1 },
+                { scale: 1, duration: 15, ease: "none", repeat: -1, yoyo: true }
+            );
+            
+            gsap.from(heroRef.current, {
+                opacity: 0,
+                y: -20,
+                duration: 1.2,
+                ease: "power2.out"
+            });
+
+            gsap.from(".hero-text", {
+                y: 30,
                 opacity: 0,
                 duration: 1,
+                delay: 0.5,
                 ease: "power3.out"
             });
             
@@ -46,7 +62,7 @@ const Denuncie = () => {
                 y: 30,
                 opacity: 0,
                 duration: 1,
-                delay: 0.3,
+                delay: 0.8,
                 ease: "power3.out"
             });
 
@@ -155,22 +171,32 @@ const Denuncie = () => {
     }
 
     return (
-        <div ref={containerRef} className="pt-32 pb-20 min-h-screen bg-off-white px-6">
-            <div className="max-w-4xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-12 anim-title">
-                    <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
-                        Denuncie
+        <div ref={containerRef} className="min-h-screen bg-off-white pb-20">
+            
+            {/* Hero Header */}
+            <div ref={heroRef} className="relative h-96 w-full overflow-hidden mb-12 shadow-xl">
+                <div className="absolute inset-0 bg-forest/30 z-10"></div>
+                <img 
+                    src={bannerImg} 
+                    alt="Mata Atlântica" 
+                    className="hero-img w-full h-full object-cover"
+                />
+                
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 hero-text">
+                    <h1 className="text-5xl md:text-7xl font-display text-white uppercase tracking-tighter drop-shadow-lg">
+                        Canal de Denúncias
                     </h1>
-                    <div className="w-24 h-1 bg-earth mx-auto mt-6"></div>
-                    <p className="mt-6 text-forest/60 font-medium max-w-xl mx-auto">
-                        Ajude a preservar o Parque Estadual Cunhambebe. Utilize este canal para reportar irregularidades.
-                        Garantimos o sigilo absoluto das suas informações.
+                    <div className="w-24 h-1 bg-earth mx-auto mt-6 shadow-sm"></div>
+                    <p className="mt-6 text-white/90 font-medium max-w-xl mx-auto drop-shadow-md text-lg tracking-wide">
+                        Ajude a preservar o Parque Estadual Cunhambebe. Garantimos sigilo absoluto.
                     </p>
                 </div>
+            </div>
 
+            <div className="max-w-4xl mx-auto px-6">
+                
                 {/* Form Card */}
-                <div ref={formRef} className="bg-white p-6 md:p-10 rounded-xl shadow-lg border border-earth/10 anim-form mb-12">
+                <div ref={formRef} className="bg-white p-6 md:p-10 rounded-xl shadow-lg border border-earth/10 anim-form mb-12 relative z-30 -mt-20">
                     <form onSubmit={handleSubmit} className="space-y-8">
                         
                         {/* Toggle Anonymous */}
@@ -393,7 +419,7 @@ const Denuncie = () => {
                 </div>
 
                 {/* INEA Contact Block */}
-                <div className="max-w-2xl mx-auto border-t border-earth/20 pt-10 text-center">
+                <div className="max-w-2xl mx-auto border-t border-earth/20 pt-10 pb-10 text-center">
                     <div className="bg-white border border-earth/10 p-6 rounded-lg shadow-sm inline-block w-full md:w-auto">
                         <div className="flex items-center justify-center gap-3 mb-4 text-forest">
                             <Phone className="w-6 h-6 text-earth" />
