@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-preservacao-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-preservacao-matheusc.
 
 // Desenvolver apenas dentro do arquivo src/pages/Preservacao.jsx.
 

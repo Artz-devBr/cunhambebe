@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-regras-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-regras-guilhermef.
 
 // Desenvolver apenas dentro do arquivo src/pages/Regras.jsx.
 

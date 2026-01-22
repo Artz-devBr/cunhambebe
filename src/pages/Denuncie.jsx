@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-denuncie-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-denuncie-jonny.
 
 // Desenvolver apenas dentro do arquivo src/pages/Denuncie.jsx.
 

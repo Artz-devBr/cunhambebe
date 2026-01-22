@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-cachoeiras-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-cachoeiras-arthur.
 
 // Desenvolver apenas dentro do arquivo src/pages/Cachoeiras.jsx.
 

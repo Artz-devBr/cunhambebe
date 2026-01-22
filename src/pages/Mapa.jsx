@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-mapa-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-mapa-hillary.
 
 // Desenvolver apenas dentro do arquivo src/pages/Mapa.jsx.
 

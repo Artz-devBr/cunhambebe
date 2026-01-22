@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-nossotrabalho-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-nossotrabalho-vitor.
 
 // Desenvolver apenas dentro do arquivo src/pages/NossoTrabalho.jsx.
 

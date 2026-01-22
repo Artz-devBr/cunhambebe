@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-eventos-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-eventos-matheuss.
 
 // Desenvolver apenas dentro do arquivo src/pages/Eventos.jsx.
 

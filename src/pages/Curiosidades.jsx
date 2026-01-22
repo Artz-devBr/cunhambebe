@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-curiosidades-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-curiosidades-zion.
 
 // Desenvolver apenas dentro do arquivo src/pages/Curiosidades.jsx.
 

@@ -34,7 +34,7 @@ export default PageTemplate;
 
 // Fazer o Fork.
 
-// Criar a branch: git checkout -b feature/pagina-faunaflora-nomedoaluno.
+// Criar a branch: git checkout -b feature/pagina-faunaflora-pedro.
 
 // Desenvolver apenas dentro do arquivo src/pages/FaunaFlora.jsx.
 
