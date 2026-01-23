@@ -1,6 +1,17 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import logoVale from '/src/assets/logos/vale.svg';
+import logoInea from '/src/assets/logos/inea.svg';
+import logoGoverno from '/src/assets/logos/governo-rj.png';
+import logoCcr from '/src/assets/logos/ccr-riosp.png';
+import logoTranspetro from '/src/assets/logos/transpetro.png';
+import logoUFRRJ from '/src/assets/logos/ufrrj.png';
+import logoUERJ from '/src/assets/logos/uerj.png';
+import logoJardimBotanico from '/src/assets/logos/jardim-botanico.png';
+import logoCONPEC from '/src/assets/logos/conpec.png';
+import logoGuias from '/src/assets/logos/guias.png';
+
+
 
 const partnersData = [
     // Gestão Institucional
@@ -9,14 +20,14 @@ const partnersData = [
         name: 'INEA',
         category: 'Gestão Institucional',
         description: 'Gestão, fiscalização e administração direta da unidade.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoInea
     },
     {
         id: 'gov-rj',
         name: 'Governo do Estado RJ',
         category: 'Gestão Institucional',
         description: 'Apoio institucional e suporte governamental.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoGoverno
     },
     // Iniciativa Privada
     {
@@ -31,14 +42,14 @@ const partnersData = [
         name: 'CCR RioSP',
         category: 'Iniciativa Privada',
         description: 'Mitigação ambiental e monitoramento de fauna na BR-101.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoCcr
     },
     {
         id: 'transpetro',
         name: 'Transpetro',
         category: 'Iniciativa Privada',
         description: 'Apoio socioambiental e projetos educativos.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoTranspetro
     },
     // Pesquisa e Educação
     {
@@ -46,21 +57,21 @@ const partnersData = [
         name: 'UFRRJ',
         category: 'Pesquisa e Educação',
         description: 'Pesquisas científicas e monitoramento da biodiversidade.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoUFRRJ
     },
     {
         id: 'uerj',
         name: 'UERJ',
         category: 'Pesquisa e Educação',
         description: 'Estudos sobre recursos hídricos e geologia.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoUERJ
     },
     {
         id: 'jbrj',
         name: 'Jardim Botânico do Rio',
         category: 'Pesquisa e Educação',
         description: 'Parceria focada em reflorestamento e flora.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoJardimBotanico
     },
     // Sociedade e Comunidade
     {
@@ -68,14 +79,14 @@ const partnersData = [
         name: 'CONPEC',
         category: 'Sociedade e Comunidade',
         description: 'Fórum de governança e participação da sociedade civil.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoCONPEC
     },
     {
         id: 'local-guides',
         name: 'Associações de Guias',
         category: 'Sociedade e Comunidade',
         description: 'Parceria com guias locais para turismo sustentável.',
-        logoUrl: '/assets/logos/placeholder.png'
+        logoUrl: logoGuias
     }
 ];
 
