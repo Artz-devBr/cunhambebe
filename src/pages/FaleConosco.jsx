@@ -5,8 +5,7 @@ import { Mail, Instagram, Phone, MapPin, Clock } from 'lucide-react';
 const FaleConosco = () => {
     const containerRef = useRef(null);
 
-    // Configuração de espaçamento das letras dos títulos (H3)
-    const H3_SPACING = "tracking-widest"; // Opções: tracking-normal, tracking-wide, tracking-wider, tracking-widest
+
 
     useEffect(() => {
         gsap.from(containerRef.current, {
@@ -42,7 +41,7 @@ const FaleConosco = () => {
                                 <Mail size={24} />
                             </div>
                             <div>
-                                <h3 className={`font-bold text-forest mb-1 ${H3_SPACING}`}>E-mail Institucional</h3>
+                                <h3 className="font-bold text-forest mb-1">E-mail Institucional</h3>
                                 <a href="mailto:adm.cunhambebe@gmail.com" className="text-forest hover:text-earth transition-colors tracking-wider">
                                     adm.cunhambebe@gmail.com
                                 </a>
@@ -54,7 +53,7 @@ const FaleConosco = () => {
                                 <Instagram size={24} />
                             </div>
                             <div>
-                                <h3 className={`font-bold text-forest mb-1 ${H3_SPACING}`}>Instagram</h3>
+                                <h3 className="font-bold text-forest mb-1">Instagram</h3>
                                 <a href="https://instagram.com/cunhambebe.rj" target="_blank" rel="noopener noreferrer" className="text-forest hover:text-earth transition-colors tracking-wider">
                                     @cunhambebe.rj
                                 </a>
@@ -66,7 +65,7 @@ const FaleConosco = () => {
                                 <Phone size={24} />
                             </div>
                             <div>
-                                <h3 className={`font-bold text-forest mb-1 ${H3_SPACING}`}>Telefone</h3>
+                                <h3 className="font-bold text-forest mb-1">Telefone</h3>
                                 <p className="text-forest tracking-wider">
                                     (21) 3789-2965
                                 </p>
@@ -88,12 +87,17 @@ const FaleConosco = () => {
                                 <MapPin size={24} />
                             </div>
                             <div>
-                                <h3 className={`font-bold text-forest mb-1 ${H3_SPACING}`}>Endereço (Sede)</h3>
-                                <p className="text-forest leading-relaxed tracking-wider">
+                                <h3 className="font-bold text-forest mb-1">Endereço (Sede)</h3>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Parque+Estadual+Cunhambebe+Mangaratiba+RJ"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-forest leading-relaxed tracking-wider hover:text-earth transition-colors block"
+                                >
                                     Estrada da Cachoeira, s/n°<br />
                                     Rodovia Rio-Santos, Km 423<br />
                                     Vale do Sahy – Mangaratiba – RJ
-                                </p>
+                                </a>
                             </div>
                         </div>
 
@@ -102,9 +106,9 @@ const FaleConosco = () => {
                                 <Clock size={24} />
                             </div>
                             <div>
-                                <h3 className={`font-bold text-forest mb-1 ${H3_SPACING}`}>Horário de Funcionamento</h3>
+                                <h3 className="font-bold text-forest mb-1">Horário de Funcionamento</h3>
                                 <p className="text-forest tracking-wider">
-                                    Terça à Domingo
+                                    Terça a Domingo
                                 </p>
                                 <p className="text-forest tracking-wider">
                                     Das 9h às 17h
