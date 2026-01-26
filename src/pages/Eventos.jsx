@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Calendar, MapPin, Clock, Info, ArrowRight, TreePine, Ticket, Camera, Users, AlertCircle, CheckCircle2 } from 'lucide-react';
 
-import veiospassaros1 from '../assets/veiospassaros1.jpeg';
-import veiospassaros2 from '../assets/veiospassaros2.jpeg';
-import veiospassaros3 from '../assets/veiospassaros3.jpeg';
+import veiospassaros1 from '../assets/matheus-vaio+passaro/veiospassaros1.jpeg';
+import veiospassaros2 from '../assets/matheus-vaio+passaro/veiospassaros2.jpeg';
+import veiospassaros3 from '../assets/matheus-vaio+passaro/veiospassaros3.jpeg';
 
 const featuredEvents = [
     {                              
