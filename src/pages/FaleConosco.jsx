@@ -4,40 +4,60 @@ import { Mail, Instagram, Phone, MapPin, Clock } from 'lucide-react';
 
 const FaleConosco = () => {
     const containerRef = useRef(null);
-
-
+    const headerRef = useRef(null);
+    const cardsRef = useRef(null);
 
     useEffect(() => {
-        gsap.from(containerRef.current, {
-            y: 30,
-            duration: 1,
-            ease: "power3.out"
-        });
+        const ctx = gsap.context(() => {
+            // Header animation
+            gsap.from(headerRef.current.children, {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Cards animation
+            gsap.from(cardsRef.current.children, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "back.out(1.7)",
+                delay: 0.5
+            });
+        }, containerRef);
+
+        return () => ctx.revert();
     }, []);
+
+    const cardClasses = "flex items-start gap-4 group hover:bg-white/80 p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-earth/20";
+    const iconContainerClasses = "bg-forest/5 p-3 rounded-full text-forest transition-transform duration-300 group-hover:scale-110 group-hover:bg-forest/10";
 
     return (
         <div ref={containerRef} className="pt-32 min-h-screen bg-off-white px-6 pb-20">
             <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
+                <div ref={headerRef} className="text-center mb-16">
                     <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter mb-6">
                         Fale Conosco
                     </h1>
-                    <div className="w-24 h-1 bg-earth mx-auto mb-8"></div>
+                    <div className="w-24 h-1 bg-earth mx-auto mb-8 origin-left"></div>
                     <p className="text-lg text-forest max-w-2xl mx-auto leading-relaxed">
                         Para dúvidas, agendamentos, parcerias ou mais informações sobre o <br />
                         Parque Estadual Cunhambebe, utilize nossos canais oficiais de atendimento.
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12">
+                <div ref={cardsRef} className="grid md:grid-cols-2 gap-12">
                     {/* Canais Digitais */}
                     <div className="space-y-6">
                         <h2 className="text-2xl font-display text-forest uppercase tracking-wide border-b border-earth/30 pb-2">
                             Canais de Atendimento
                         </h2>
 
-                        <div className="flex items-start gap-4 group hover:bg-white/50 p-4 rounded-lg transition-all duration-300">
-                            <div className="bg-forest/10 p-3 rounded-full text-forest transition-colors duration-300">
+                        <div className={cardClasses}>
+                            <div className={iconContainerClasses}>
                                 <Mail size={24} />
                             </div>
                             <div>
@@ -48,8 +68,8 @@ const FaleConosco = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 group hover:bg-white/50 p-4 rounded-lg transition-all duration-300">
-                            <div className="bg-forest/10 p-3 rounded-full text-forest transition-colors duration-300">
+                        <div className={cardClasses}>
+                            <div className={iconContainerClasses}>
                                 <Instagram size={24} />
                             </div>
                             <div>
@@ -60,8 +80,8 @@ const FaleConosco = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 group hover:bg-white/50 p-4 rounded-lg transition-all duration-300">
-                            <div className="bg-forest/10 p-3 rounded-full text-forest transition-colors duration-300">
+                        <div className={cardClasses}>
+                            <div className={iconContainerClasses}>
                                 <Phone size={24} />
                             </div>
                             <div>
@@ -82,8 +102,8 @@ const FaleConosco = () => {
                             Atendimento Presencial
                         </h2>
 
-                        <div className="flex items-start gap-4 group hover:bg-white/50 p-4 rounded-lg transition-all duration-300">
-                            <div className="bg-forest/10 p-3 rounded-full text-forest transition-colors duration-300">
+                        <div className={cardClasses}>
+                            <div className={iconContainerClasses}>
                                 <MapPin size={24} />
                             </div>
                             <div>
@@ -101,8 +121,8 @@ const FaleConosco = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 group hover:bg-white/50 p-4 rounded-lg transition-all duration-300">
-                            <div className="bg-forest/10 p-3 rounded-full text-forest transition-colors duration-300">
+                        <div className={cardClasses}>
+                            <div className={iconContainerClasses}>
                                 <Clock size={24} />
                             </div>
                             <div>
