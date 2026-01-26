@@ -8,6 +8,13 @@ import imgSapo from '../assets/fauna_flora/Sapo_pingo_de_ouro_Bernardo.JPG';
 import imgCobra from '../assets/fauna_flora/Erythrolamprus_miliaris_ iris_lemos.JPG';
 import imgPassaro from '../assets/fauna_flora/garibaldi_Samuel_Gomes_08.01.JPG';
 import imgCogumelo from '../assets/fauna_flora/Cogumelo_guarda_sol_Macrolepiota_colombiana.JPG';
+import imgButterfly from '../assets/fauna_flora/02_Heraclides_hectorides_FAUNA_Ponte_bela 01_03.JPG';
+import imgTicoTico from '../assets/fauna_flora/tico-tico-do-campo.JPG';
+import imgAmanita from '../assets/fauna_flora/Amanita_aureofloccosa.JPG';
+import imgCoprinellus from '../assets/fauna_flora/Coprinellus_sp.JPG';
+import imgCyathus from '../assets/fauna_flora/Cyathus_sp.JPG';
+import imgClathrus from '../assets/fauna_flora/Gaiola_do_fedor_Clathrus_chrysomycelinus.JPG';
+import imgPhallus from '../assets/fauna_flora/Véu-da-noiva_Phallus_indusiatus.JPG';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,6 +193,36 @@ const FaunaFlora = () => {
                     </div>
                 </div>
 
+                {/* Fungos */}
+                <Section title="O Reino Oculto: Fungos">
+                    <p>
+                        Frequentemente esquecidos, os fungos desempenham um papel crucial na decomposição da matéria orgânica e na reciclagem de nutrientes. O ambiente úmido do Cunhambebe é um paraíso para estas formas de vida fascinantes, desde os minúsculos "ninhos-de-pássaro" até as extravagantes "gaiolas" e "véus-da-noiva".
+                    </p>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                        {[
+                            { img: imgPhallus, name: "Phallus indusiatus", common: "Véu-da-noiva" },
+                            { img: imgClathrus, name: "Clathrus chrysomycelinus", common: "Gaiola-do-fedor" },
+                            { img: imgCogumelo, name: "Macrolepiota colombiana", common: "Cogumelo-guarda-sol" },
+                            { img: imgAmanita, name: "Amanita aureofloccosa", common: "" },
+                            { img: imgCyathus, name: "Cyathus sp.", common: "Ninho-de-pássaro" },
+                            { img: imgCoprinellus, name: "Coprinellus sp.", common: "" },
+                        ].map((item, index) => (
+                            <div key={index} className="reveal-img-container relative group overflow-hidden rounded-lg shadow-lg h-48 md:h-64">
+                                <img
+                                    src={item.img}
+                                    alt={item.name}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                    <span className="text-white font-bold text-sm md:text-base italic">{item.name}</span>
+                                    {item.common && <span className="text-white/80 text-xs">{item.common}</span>}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </Section>
+
                 <div className="grid md:grid-cols-2 gap-12 items-start mb-24">
                     <div className="order-2 md:order-1 grid grid-cols-2 gap-4">
                         <div className="reveal-img-container overflow-hidden rounded-lg shadow-lg h-48">
@@ -209,6 +246,20 @@ const FaunaFlora = () => {
                                 className="parallax-img w-full h-[120%] object-cover -mt-8"
                             />
                         </div>
+                        <div className="reveal-img-container overflow-hidden rounded-lg shadow-lg h-48 col-span-2 sm:col-span-1">
+                            <img
+                                src={imgButterfly}
+                                alt="Borboleta Heraclides hectorides"
+                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            />
+                        </div>
+                        <div className="reveal-img-container overflow-hidden rounded-lg shadow-lg h-48 col-span-2 sm:col-span-1">
+                            <img
+                                src={imgTicoTico}
+                                alt="Tico-tico-do-campo"
+                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            />
+                        </div>
                     </div>
                     <div className="order-1 md:order-2 md:pl-8">
                         <Section title="Fauna: A Vida Secreta da Serra">
@@ -219,7 +270,12 @@ const FaunaFlora = () => {
 
                             <h3 className="text-xl font-bold text-earth mt-6 mb-2">O Santuário das Aves</h3>
                             <p>
-                                O céu e as copas das árvores são coloridos por aves icônicas. O voo do <strong>Gavião-pega-macaco</strong>, as cores do <strong>Surucuá-variado</strong> e da <strong>Saíra-sete-cores</strong> encantam observadores. O parque é um refúgio essencial para a avifauna da Mata Atlântica.
+                                O céu e as copas das árvores são coloridos por aves icônicas. O voo do <strong>Gavião-pega-macaco</strong>, as cores do <strong>Surucuá-variado</strong>, da <strong>Saíra-sete-cores</strong> e do simpático <strong>Tico-tico-do-campo</strong> encantam observadores. O parque é um refúgio essencial para a avifauna da Mata Atlântica.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-earth mt-6 mb-2">Pequenos Gigantes: Insetos</h3>
+                            <p>
+                                A diversidade de invertebrados é imensa. Borboletas como a <em>Heraclides hectorides</em> colorem as trilhas e são vitais para a polinização da flora nativa.
                             </p>
 
                             <h3 className="text-xl font-bold text-earth mt-6 mb-2">Anfíbios e Répteis</h3>
