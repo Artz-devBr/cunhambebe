@@ -39,9 +39,18 @@ const Denuncie = () => {
         let ctx = gsap.context(() => {
             // Hero Animations
             gsap.fromTo(".hero-img", 
-                { scale: 1.1 },
-                { scale: 1, duration: 15, ease: "none", repeat: -1, yoyo: true }
+                { scale: 1.05, filter: "blur(5px)" },
+                { scale: 1, filter: "blur(0px)", duration: 2, ease: "power2.out" }
             );
+
+            gsap.to(".hero-img", {
+                scale: 1.05,
+                duration: 20,
+                ease: "none",
+                repeat: -1,
+                yoyo: true,
+                delay: 2 // Start slow zoom after initial focus
+            });
             
             gsap.from(heroRef.current, {
                 opacity: 0,
@@ -174,12 +183,15 @@ const Denuncie = () => {
         <div ref={containerRef} className="min-h-screen bg-off-white pb-20">
             
             {/* Hero Header */}
-            <div ref={heroRef} className="relative h-96 w-full overflow-hidden mb-12 shadow-xl">
-                <div className="absolute inset-0 bg-forest/30 z-10"></div>
+            <div ref={heroRef} className="relative h-96 w-full overflow-hidden mb-12 shadow-xl bg-forest">
+                {/* Overlays */}
+                <div className="absolute inset-0 bg-forest/40 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-off-white z-10 opacity-80"></div>
+                
                 <img 
                     src={bannerImg} 
                     alt="Mata Atlântica" 
-                    className="hero-img w-full h-full object-cover"
+                    className="hero-img w-full h-full object-cover opacity-90"
                 />
                 
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 hero-text">
@@ -420,15 +432,19 @@ const Denuncie = () => {
 
                 {/* INEA Contact Block */}
                 <div className="max-w-2xl mx-auto border-t border-earth/20 pt-10 pb-10 text-center">
-                    <div className="bg-white border border-earth/10 p-6 rounded-lg shadow-sm inline-block w-full md:w-auto">
-                        <div className="flex items-center justify-center gap-3 mb-4 text-forest">
-                            <Phone className="w-6 h-6 text-earth" />
-                            <h3 className="text-xl font-display uppercase tracking-wide">Denúncia via Telefone (INEA)</h3>
-                        </div>
-                        <p className="text-3xl font-bold text-forest mb-2 tracking-tight">(021) 2334-5974</p>
-                        <div className="flex items-center justify-center gap-2 text-forest/60 text-sm font-medium">
-                            <Clock className="w-4 h-4" />
-                            <span>De segunda a sexta, das 10h às 17h</span>
+                    <div className="bg-white border-l-4 border-earth p-6 rounded-r-lg shadow-sm inline-block w-full md:w-auto text-left">
+                        <div className="flex items-center gap-4">
+                            <div className="bg-forest/10 p-3 rounded-full">
+                                <Phone className="w-8 h-8 text-forest" />
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-forest/60 uppercase tracking-widest mb-1">Denúncia via Telefone (INEA)</h3>
+                                <p className="text-2xl md:text-3xl font-bold text-forest tracking-tight">(021) 2334-5974</p>
+                                <div className="flex items-center gap-2 text-forest/70 text-sm font-medium mt-1">
+                                    <Clock className="w-4 h-4" />
+                                    <span>Seg a Sex, 10h às 17h</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
