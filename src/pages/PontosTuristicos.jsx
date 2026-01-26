@@ -1,18 +1,18 @@
-import cachoeiraItingucu from '../assets/cachoeira_do_itinguçu.webp';
-import cachoeiraVeuNoiva from '../assets/cachoeira_veu_da_noiva.jpg';
-import cachoeiraRubiao from '../assets/cachoeira_do_rubiao.JPG';
-import cachoeiraBengala from '../assets/cachoeira_da _bengala.jpg';
-import ruinasTeatro from '../assets/teatro_antigo.png';
-import ponteBela from '../assets/ponte_bela.jpg';
-import igrejaMatriz from '../assets/igreja_matriz_de_sao_joao_marcos.webp';
-import pedraChata from '../assets/pedra_chata.jpg';
-import bicoPapagaio from '../assets/bico_do_papagaio.jpg';
-import ribeiraoLages from '../assets/represa_ribeirao_das_lajes.jpg';
-import miranteSahy from '../assets/mirante_do_sahy.jpg';
-import cachoeirasRioSahy from '../assets/cachoeira_do_rio_sahy.webp';
-import picoTresOrelhas from '../assets/pico_das_tres_orelhas.webp';
-import cachoeiraConquista from '../assets/a-cachoeira-da-conquista.jpg';
-import textureBackground from '../assets/texture_background_v2.png';
+import cachoeiraItingucu from '../assets/alvaro_pontos/cachoeira_do_itinguçu.webp';
+import cachoeiraVeuNoiva from '../assets/alvaro_pontos/cachoeira_veu_da_noiva.jpg';
+import cachoeiraRubiao from '../assets/alvaro_pontos/cachoeira_do_rubiao.JPG';
+import cachoeiraBengala from '../assets/alvaro_pontos/cachoeira_da_bengala.jpg';
+import ruinasTeatro from '../assets/alvaro_pontos/teatro_antigo.png';
+import ponteBela from '../assets/alvaro_pontos/ponte_imperial.jpg';
+import igrejaMatriz from '../assets/alvaro_pontos/igreja_matriz_de_sao_joao_marcos.webp';
+import pedraChata from '../assets/alvaro_pontos/pedra_chata.jpg';
+import bicoPapagaio from '../assets/alvaro_pontos/bico_do_papagaio.jpg';
+import ribeiraoLages from '../assets/alvaro_pontos/represa_ribeirao_das_lajes.jpg';
+import miranteSahy from '../assets/alvaro_pontos/mirante_do_sahy.jpg';
+import cachoeiraRioSahy from '../assets/alvaro_pontos/cachoeira_do_rio_sahy.jpg';
+import picoTresOrelhas from '../assets/alvaro_pontos/pico_das_tres_orelhas.webp';
+import cachoeiraConquista from '../assets/alvaro_pontos/a_cachoeira_da_conquista.jpg';
+import textureBackground from '../assets/alvaro_pontos/texture_background_v2.png';
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -114,7 +114,7 @@ const pontosTuristicos = [
     {
         id: 12,
         nome: "💦 12. Cachoeiras do Rio Sahy",
-        imagem: cachoeirasRioSahy,
+        imagem: cachoeiraRioSahy,
         dificuldade: 2,
         descricao: "Pequeno conjunto de quedas e piscinas naturais.",
         sede: "Sede Mangaratiba"
@@ -132,7 +132,7 @@ const pontosTuristicos = [
         nome: "💧 14. Cachoeira da Conquista",
         imagem: cachoeiraConquista,
         dificuldade: 3,
-        descricao: "Parte de trilha maior com várias quedas d’água.",
+        descricao: "Parte de trilha maior com várias quedas d'água.",
         sede: "Sede Mangaratiba"
     }
 ];
@@ -175,6 +175,8 @@ const DifficultyBars = ({ level }) => {
 const PontosTuristicos = () => {
     const containerRef = useRef(null);
     const cardsRef = useRef([]);
+    const [imagemSelecionada, setImagemSelecionada] = React.useState(null);
+    const [zoomLevel, setZoomLevel] = React.useState(1);
 
     useEffect(() => {
         // Animação de entrada do título
@@ -212,10 +214,31 @@ const PontosTuristicos = () => {
         };
     }, []);
 
+    // Funções para controlar o modal de imagem
+    const abrirModal = (imagem) => {
+        setImagemSelecionada(imagem);
+        setZoomLevel(1);
+        document.body.style.overflow = 'hidden'; // Previne scroll do body
+    };
+
+    const fecharModal = () => {
+        setImagemSelecionada(null);
+        setZoomLevel(1);
+        document.body.style.overflow = 'auto'; // Restaura o scroll
+    };
+
+    const aumentarZoom = () => {
+        setZoomLevel(prev => Math.min(prev + 0.5, 3)); // Máximo 3x
+    };
+
+    const diminuirZoom = () => {
+        setZoomLevel(prev => Math.max(prev - 0.5, 1)); // Mínimo 1x
+    };
+
 
 
     return (
-        <div ref={containerRef} className="min-h-screen overflow-hidden bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${textureBackground})` }}>
+        <div ref={containerRef} className="min-h-screen overflow-hidden bg-gray-100">
             {/* Header Section */}
             <header className="py-20 px-6 text-center bg-white shadow-sm mb-12">
                 <h1 className="header-animate text-5xl md:text-6xl font-bold text-green-900 mb-4 font-display uppercase tracking-tight">
@@ -241,7 +264,10 @@ const PontosTuristicos = () => {
                                 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`} // Alterna a ordem
                         >
                             {/* Imagem */}
-                            <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-xl transition-transform duration-500 hover:scale-105">
+                            <div
+                                className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-xl transition-transform duration-500 hover:scale-105 cursor-pointer"
+                                onClick={() => abrirModal(ponto.imagem)}
+                            >
                                 <img
                                     src={ponto.imagem}
                                     alt={ponto.nome}
@@ -275,6 +301,76 @@ const PontosTuristicos = () => {
                     ))}
                 </div>
             </main>
+
+            {/* Modal de Visualização de Imagem */}
+            {imagemSelecionada && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                    onClick={fecharModal}
+                >
+                    <div className="relative max-w-7xl max-h-screen w-full h-full flex items-center justify-center">
+                        {/* Botão Fechar */}
+                        <button
+                            onClick={fecharModal}
+                            className="absolute top-4 right-4 z-10 bg-white rounded-full p-3 hover:bg-gray-200 transition-colors shadow-lg"
+                            aria-label="Fechar"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                        {/* Controles de Zoom */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-full px-4 py-2 shadow-lg flex items-center gap-4">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    diminuirZoom();
+                                }}
+                                className="hover:bg-gray-200 rounded-full p-2 transition-colors"
+                                aria-label="Diminuir zoom"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+                                </svg>
+                            </button>
+                            <span className="text-gray-800 font-medium min-w-[60px] text-center">
+                                {Math.round(zoomLevel * 100)}%
+                            </span>
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    aumentarZoom();
+                                }}
+                                className="hover:bg-gray-200 rounded-full p-2 transition-colors"
+                                aria-label="Aumentar zoom"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Imagem */}
+                        <div
+                            className="overflow-auto max-w-full max-h-full"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={imagemSelecionada}
+                                alt="Visualização ampliada"
+                                className="transition-transform duration-300 ease-in-out"
+                                style={{
+                                    transform: `scale(${zoomLevel})`,
+                                    maxWidth: '100%',
+                                    maxHeight: '90vh',
+                                    objectFit: 'contain'
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
