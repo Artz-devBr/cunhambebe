@@ -5,13 +5,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield, Leaf, Droplets, History, Info, Binoculars, TreePine } from 'lucide-react';
 
 // Assets placeholders - based on file list
-import heroBg from '../assets/1.jpg';
-import monkey from '../assets/1.jpg';
-import bird from '../assets/1.jpg';
-import ruins from '../assets/1.jpg';
-import chief from '../assets/1.jpg';
-import texture from '../assets/1.jpg';
-import waterfall from '../assets/1.jpg';
+import heroBg from '../assets/park-aerial-view.png';
+import monkey from '../assets/muriqui-monkey.png';
+import bird from '../assets/tie-sangue-bird.png';
+import ruins from '../assets/historical-ruins.png';
+import chief from '../assets/cunhambebe-chief.png';
+import texture from '../assets/alvaro_pontos/texture_background_v2.png';
+import waterfall from '../assets/alvaro_pontos/cachoeira_do_itinguçu.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
