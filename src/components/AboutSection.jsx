@@ -2,6 +2,8 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 
+import bird from '../assets/tie-sangue-bird.png';
+
 const AboutSection = () => {
     const sectionRef = useRef(null);
     const textRef = useRef(null);
@@ -64,7 +66,7 @@ const AboutSection = () => {
                 <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl">
                     <img
                         ref={imageRef}
-                        src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2074&auto=format&fit=crop"
+                        src={bird}
                         alt="Mata Atlântica"
                         className="w-full h-full object-cover"
                     />

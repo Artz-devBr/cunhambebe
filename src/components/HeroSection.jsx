@@ -92,7 +92,7 @@ const HeroSection = () => {
             <div className="relative z-30 text-center px-4">
                 <h1
                     ref={titleRef}
-                    className="text-6xl md:text-9xl text-white drop-shadow-2xl leading-none font-bold"
+                    className="text-6xl md:text-9xl text-white drop-shadow-2xl leading-none font-bold tracking-wide"
                 >
                     CUNHAMBEBE
                 </h1>

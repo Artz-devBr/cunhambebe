@@ -51,7 +51,10 @@ const Navbar = () => {
 
     return (
         <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent text-white duration-300">
-            <Link to="/" className="font-display text-2xl tracking-tighter">CUNHAMBEBE</Link>
+            <Link to="/" className="flex items-center gap-3 font-display text-2xl tracking-wide">
+                <img src="/logo.png" alt="Logo Cunhambebe" className="h-10 w-auto object-contain" />
+                CUNHAMBEBE
+            </Link>
 
             <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest items-center">
                 <Link to="/" className="hover:text-earth transition-colors">Início</Link>

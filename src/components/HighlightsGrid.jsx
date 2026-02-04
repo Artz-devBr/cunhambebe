@@ -3,6 +3,10 @@ import gsap from 'gsap';
 import { Mountain, Droplets, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import trilhas from '../assets/trilhas.jpeg';
+import ruins from '../assets/historical-ruins.png';
+import veu1 from '../assets/Trilhas/veudanoiva.jpg';
+
 const HighlightCard = ({ icon: Icon, title, description, image, path }) => {
     const cardRef = useRef(null);
     const contentRef = useRef(null);
@@ -89,21 +93,21 @@ const HighlightsGrid = () => {
             icon: Mountain,
             title: "Trilhas",
             description: "Explore caminhos que levam a picos com vistas panorâmicas de tirar o fôlego.",
-            image: "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop",
+            image: trilhas,
             path: "/trilhas"
         },
         {
             icon: Droplets,
             title: "Cachoeiras",
             description: "Banhe-se em águas cristalinas escondidas no denso coração da floresta.",
-            image: "https://images.unsplash.com/photo-1508459855340-fb63ac591728?q=80&w=1980&auto=format&fit=crop",
+            image: veu1,
             path: "/cachoeiras"
         },
         {
             icon: ShieldCheck,
             title: "Preservação",
             description: "Conheça nossos projetos de monitoramento e proteção da fauna e flora local.",
-            image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1913&auto=format&fit=crop",
+            image: ruins,
             path: "/preservacao"
         }
     ];
