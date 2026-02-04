@@ -2,58 +2,46 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Import local images
+import img1 from '../assets/hero/1.jpg';
+import img2 from '../assets/hero/2.jpg';
+import img3 from '../assets/hero/3.jpeg';
+import img4 from '../assets/hero/4.jpeg';
+import img5 from '../assets/hero/5.jpeg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
     const containerRef = useRef(null);
     const titleRef = useRef(null);
-    const bgRef = useRef(null);
-    const midRef = useRef(null);
-    const fgRef = useRef(null);
+    const imagesRef = useRef([]);
+    const images = [img1, img2, img3, img4, img5];
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Parallax effect
-            gsap.to(bgRef.current, {
-                yPercent: 20,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: true,
-                },
+            // Initial states
+            gsap.set(imagesRef.current, { opacity: 0, scale: 1.1 });
+            gsap.set(imagesRef.current[0], { opacity: 1, scale: 1 });
+
+            // Slideshow Timeline
+            const tl = gsap.timeline({ repeat: -1 });
+
+            images.forEach((_, i) => {
+                const nextIndex = (i + 1) % images.length;
+                const currentImage = imagesRef.current[i];
+                const nextImage = imagesRef.current[nextIndex];
+
+                // Duration of each slide
+                tl.to({}, { duration: 4 })
+                    // Transition to next slide
+                    .to(currentImage, { opacity: 0, duration: 1.5, ease: 'power2.inOut' }, '>')
+                    .to(nextImage, { opacity: 1, scale: 1, duration: 1.5, ease: 'power2.inOut' }, '<')
+                    .set(currentImage, { scale: 1.1 }); // Reset scale for next time it appears
             });
 
-            gsap.to(midRef.current, {
-                yPercent: -10,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: true,
-                },
-            });
-
-            gsap.to(fgRef.current, {
-                yPercent: -30,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: true,
-                },
-            });
-
-            // Title animation
+            // Title Animation
             gsap.fromTo(titleRef.current,
-                {
-                    opacity: 0,
-                    y: 100,
-                    skewY: 7
-                },
+                { opacity: 0, y: 100, skewY: 7 },
                 {
                     opacity: 1,
                     y: 0,
@@ -63,67 +51,59 @@ const HeroSection = () => {
                     delay: 0.5
                 }
             );
+
+            // Subtle Parallax on Scroll for the whole container
+            gsap.to(containerRef.current, {
+                backgroundPosition: "50% 100%",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
         }, containerRef);
 
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="parallax-container h-screen w-full relative overflow-hidden flex items-center justify-center">
-            {/* Background Layer */}
-            <div
-                ref={bgRef}
-                className="parallax-layer z-0"
-                style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1974&auto=format&fit=crop")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '120%'
-                }}
-            />
+        <section ref={containerRef} className="h-screen w-full relative overflow-hidden flex items-center justify-center bg-black">
+            {/* Background Slideshow */}
+            <div className="absolute inset-0 w-full h-full z-0">
+                {images.map((img, index) => (
+                    <div
+                        key={index}
+                        ref={el => imagesRef.current[index] = el}
+                        className="absolute inset-0 w-full h-full bg-cover bg-center"
+                        style={{ backgroundImage: `url(${img})` }}
+                    />
+                ))}
+            </div>
 
-            {/* Midground Layer */}
-            <div
-                ref={midRef}
-                className="parallax-layer z-10 pointer-events-none"
-                style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: 0.7,
-                    height: '110%'
-                }}
-            />
+            {/* Dark Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-black/40 z-10" />
 
-            {/* Hero Content */}
-            <div className="relative z-40 text-center px-4">
+            {/* Gradient Overlay at Bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20 pointer-events-none" />
+
+            {/* Content */}
+            <div className="relative z-30 text-center px-4">
                 <h1
                     ref={titleRef}
-                    className="text-6xl md:text-9xl text-white drop-shadow-2xl leading-none"
+                    className="text-6xl md:text-9xl text-white drop-shadow-2xl leading-none font-bold"
                 >
                     CUNHAMBEBE
                 </h1>
-                <p className="text-off-white text-lg md:text-xl mt-4 font-medium tracking-widest uppercase opacity-80">
+                <p className="text-off-white text-lg md:text-xl mt-4 font-medium tracking-widest uppercase opacity-90 drop-shadow-lg">
                     O Coração da Mata Atlântica
                 </p>
             </div>
 
-            {/* Foreground Layer */}
-            <div
-                ref={fgRef}
-                className="parallax-layer z-30 pointer-events-none"
-                style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2148&auto=format&fit=crop")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'bottom',
-                    maskImage: 'linear-gradient(to top, black 50%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to top, black 50%, transparent 100%)',
-                    height: '130%'
-                }}
-            />
-
+            {/* Scroll Indicator */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 animate-bounce">
-                <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2">
+                <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2 backdrop-blur-sm">
                     <div className="w-1 h-2 bg-white rounded-full" />
                 </div>
             </div>
