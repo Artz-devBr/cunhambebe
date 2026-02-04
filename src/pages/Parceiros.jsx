@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 import logoVale from '/src/assets/logos/vale.svg';
 import logoInea from '/src/assets/logos/inea.svg';
 import logoGoverno from '/src/assets/logos/governo-rj.png';
@@ -195,16 +196,10 @@ const Parceiros = () => {
 
     return (
         <div className="min-h-screen bg-off-white pt-32 pb-24">
-            {/* Header / Hero */}
-            <div className="container mx-auto px-6 mb-20 text-center">
-                <h1 className="text-5xl md:text-7xl text-forest mb-6 tracking-tight">
-                    Nossos Parceiros
-                </h1>
-                <p className="max-w-3xl mx-auto text-xl text-forest/80 leading-relaxed font-light">
-                    A conservação do Parque Estadual Cunhambebe é fortalecida pela união de esforços.
-                    Conheça as instituições que caminham conosco nessa jornada de preservação.
-                </p>
-            </div>
+            <PageHeader
+                title="Nossos Parceiros"
+                description="A conservação do Parque Estadual Cunhambebe é fortalecida pela união de esforços. Conheça as instituições que caminham conosco nessa jornada de preservação."
+            />
 
             <div className="container mx-auto px-6 max-w-7xl">
                 {/* Gestão Institucional - Grid */}

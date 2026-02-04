@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Leaf, Info, Bird, Trees, Mountain, Droplets } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,13 +65,6 @@ const Curiosidades = () => {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             // Hero Title Animation
-            gsap.from(titleRef.current, {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-
             // Cards Animation
             itemsRef.current.forEach((el, index) => {
                 gsap.from(el, {
@@ -100,14 +94,10 @@ const Curiosidades = () => {
     return (
         <div ref={containerRef} className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-off-white">
             {/* Hero Section */}
-            <div className="max-w-7xl mx-auto text-center mb-16">
-                <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold text-forest mb-6">
-                    Curiosidades do Parque
-                </h1>
-                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    Descubra fatos fascinantes sobre a história, geografia e a biodiversidade exuberante que habita o Parque Estadual Cunhambebe.
-                </p>
-            </div>
+            <PageHeader
+                title="Curiosidades do Parque"
+                description="Descubra fatos fascinantes sobre a história, geografia e a biodiversidade exuberante que habita o Parque Estadual Cunhambebe."
+            />
 
             {/* Grid Section */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

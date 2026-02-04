@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield, Leaf, Droplets, History, Info, Binoculars, TreePine } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 // Assets placeholders - based on file list
 import heroBg from '../assets/park-aerial-view.png';
@@ -45,22 +46,10 @@ const Card = ({ title, subtitle, description, icon: Icon, image, delay }) => {
 };
 
 const Preservacao = () => {
-    const headerRef = useRef(null);
-    const contentRef = useRef(null);
-    const textRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Hero Animation
-            // Hero Animation
-            gsap.from(headerRef.current.children, {
-                opacity: 0,
-                y: 30,
-                duration: 1.5,
-                stagger: 0.2, // Stagger text appearance
-                ease: "power3.out"
-            });
-
             // Cards Animation
             gsap.utils.toArray('.card-gsap').forEach((card, i) => {
                 gsap.from(card, {
@@ -100,37 +89,19 @@ const Preservacao = () => {
                     ease: "power2.out"
                 });
             });
-
-        });
+        }, containerRef);
 
         return () => ctx.revert();
     }, []);
 
     return (
-        <div className="bg-off-white min-h-screen pt-20">
-            {/* Hero Section */}
-            <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src={heroBg}
-                        alt="Vista Aérea do Parque"
-                        className="w-full h-full object-cover opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-forest/20 to-off-white"></div>
-                </div>
-
-                <div ref={headerRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-                    <div className="inline-flex items-center gap-2 bg-earth/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-earth/30">
-                        <Shield size={16} className="text-earth" />
-                        <span className="text-off-white font-medium tracking-widest text-xs uppercase">Compromisso com o Futuro</span>
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-display text-white uppercase tracking-tighter mb-6 drop-shadow-lg">
-                        Preservação & <br /><span className="text-earth">Sustentabilidade</span>
-                    </h1>
-                    <p className="text-gray-100 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                        Protegendo a biodiversidade, a história e os recursos naturais do Parque Estadual Cunhambebe para as gerações futuras.
-                    </p>
-                </div>
+        <div ref={containerRef} className="bg-off-white min-h-screen pt-32">
+            <div className="container mx-auto px-6 max-w-5xl">
+                {/* Header */}
+                <PageHeader
+                    title={<>Preservação & Sustentabilidade</>}
+                    description="Protegendo a biodiversidade, a história e os recursos naturais do Parque Estadual Cunhambebe para as gerações futuras."
+                />
             </div>
 
             {/* Introduction Quote */}

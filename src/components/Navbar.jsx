@@ -31,7 +31,7 @@ const Navbar = () => {
                 color: '#0f281e', // forest color
                 backdropFilter: 'blur(16px)',
                 scrollTrigger: {
-                    trigger: "body", // Trigger based on body scroll
+                    trigger: document.documentElement, // Trigger based on scroll
                     start: 'top -10',
                     end: 'top -20',
                     scrub: true,

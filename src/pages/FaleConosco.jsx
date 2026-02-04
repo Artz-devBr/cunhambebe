@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Mail, Instagram, Phone, MapPin, Clock } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 const FaleConosco = () => {
     const containerRef = useRef(null);
@@ -9,15 +10,6 @@ const FaleConosco = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Header animation
-            gsap.from(headerRef.current.children, {
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
             // Cards animation
             gsap.from(cardsRef.current.children, {
                 y: 50,
@@ -38,16 +30,10 @@ const FaleConosco = () => {
     return (
         <div ref={containerRef} className="pt-32 min-h-screen bg-off-white px-6 pb-20">
             <div className="max-w-4xl mx-auto">
-                <div ref={headerRef} className="text-center mb-16">
-                    <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter mb-6">
-                        Fale Conosco
-                    </h1>
-                    <div className="w-24 h-1 bg-earth mx-auto mb-8 origin-left"></div>
-                    <p className="text-lg text-forest max-w-2xl mx-auto leading-relaxed">
-                        Para dúvidas, agendamentos, parcerias ou mais informações sobre o <br />
-                        Parque Estadual Cunhambebe, utilize nossos canais oficiais de atendimento.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Fale Conosco"
+                    description={<>Para dúvidas, agendamentos, parcerias ou mais informações sobre o <br className="hidden md:block" /> Parque Estadual Cunhambebe, utilize nossos canais oficiais de atendimento.</>}
+                />
 
                 <div ref={cardsRef} className="grid md:grid-cols-2 gap-12">
                     {/* Canais Digitais */}

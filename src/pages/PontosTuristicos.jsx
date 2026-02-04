@@ -17,6 +17,7 @@ import textureBackground from '../assets/alvaro_pontos/texture_background_v2.png
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PageHeader from '../components/PageHeader';
 
 // Registra o plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -179,12 +180,6 @@ const PontosTuristicos = () => {
     const [zoomLevel, setZoomLevel] = React.useState(1);
 
     useEffect(() => {
-        // Animação de entrada do título
-        gsap.fromTo(".header-animate",
-            { opacity: 0, y: -50 },
-            { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
-        );
-
         // Animação dos cards ao rolar a página
         cardsRef.current.forEach((card, index) => {
             gsap.fromTo(card,
@@ -238,20 +233,12 @@ const PontosTuristicos = () => {
 
 
     return (
-        <div ref={containerRef} className="min-h-screen overflow-hidden bg-gray-100">
+        <div ref={containerRef} className="min-h-screen overflow-hidden bg-gray-100 pt-32">
             {/* Header Section */}
-            <header className="py-20 px-6 text-center bg-white shadow-sm mb-12">
-                <h1 className="header-animate text-5xl md:text-6xl font-bold text-green-900 mb-4 font-display uppercase tracking-tight">
-                    Pontos Turísticos
-                </h1>
-                <div className="header-animate w-24 h-1.5 bg-green-600 mx-auto rounded-full mb-6"></div>
-                <p className="header-animate text-gray-600 max-w-2xl mx-auto text-lg">
-                    Explore as belezas naturais, trilhas desafiadoras e paisagens inesquecíveis do Parque Cunhambebe.
-                </p>
-                <p className="header-animate text-sm text-gray-500 mt-2">
-                    Para mais informações sobre o local em específico, olhe nas abas cachoeiras ou nas trilhas
-                </p>
-            </header>
+            <PageHeader
+                title="Pontos Turísticos"
+                description="Explore as belezas naturais, trilhas desafiadoras e paisagens inesquecíveis do Parque Cunhambebe."
+            />
 
             {/* Main Content - Cards */}
             <main className="container mx-auto px-4 pb-24">

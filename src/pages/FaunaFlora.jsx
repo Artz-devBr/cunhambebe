@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PageHeader from '../components/PageHeader';
 
 // Images
 import imgNidularium from '../assets/fauna_flora/01_Nidularium_innocentii_EquipeEVL.JPG';
@@ -32,24 +33,6 @@ const FaunaFlora = () => {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Header Animation
-            const tl = gsap.timeline();
-            tl.from("h1", {
-                y: 100,
-                duration: 1.2,
-                ease: "power4.out"
-            })
-                .from(".header-line", {
-                    scaleX: 0,
-                    duration: 0.8,
-                    ease: "power2.out"
-                }, "-=0.6")
-                .from(".header-text", {
-                    opacity: 0,
-                    y: 20,
-                    duration: 0.8
-                }, "-=0.4");
-
             // Generic Section Reveals
             gsap.utils.toArray(".section-trigger").forEach(section => {
                 const title = section.querySelector(".section-title");
@@ -139,15 +122,10 @@ const FaunaFlora = () => {
             <div className="container mx-auto px-6 max-w-5xl pb-24">
 
                 {/* Header */}
-                <div className="text-center mb-24 relative z-10">
-                    <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
-                        Fauna e Flora
-                    </h1>
-                    <div className="header-line w-24 h-1 bg-earth mx-auto mt-6 origin-center"></div>
-                    <p className="header-text mt-8 text-xl text-forest/70 font-medium max-w-2xl mx-auto">
-                        Um santuário de biodiversidade onde a vida pulsa em cada folha, em cada canto da serra.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Fauna e Flora"
+                    description="Um santuário de biodiversidade onde a vida pulsa em cada folha, em cada canto da serra."
+                />
 
                 {/* Introdução */}
                 <Section className="anim-section">

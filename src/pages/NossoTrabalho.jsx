@@ -1,15 +1,14 @@
-//Nosso Trabalho by Vitor Gabriel
-
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Instagram } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 const PageTemplate = ({ title }) => {
     const containerRef = useRef(null);
 
     useEffect(() => {
         gsap.from(containerRef.current, {
-           
+
             y: 30,
             duration: 1,
             ease: "power3.out"
@@ -21,15 +20,10 @@ const PageTemplate = ({ title }) => {
             <div className="max-w-6xl mx-auto">
 
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
-                        {title || "Nosso Trabalho"}
-                    </h1>
-                    <div className="w-24 h-1 bg-earth mx-auto mt-6"></div>
-                    <p className="mt-8 text-xl text-forest/80 max-w-3xl mx-auto leading-relaxed">
-                        No Parque Estadual Cunhambebe, protegemos 38 mil hectares de Mata Atlântica na Costa Verde do Rio de Janeiro.
-                    </p>
-                </div>
+                <PageHeader
+                    title={title || "Nosso Trabalho"}
+                    description="No Parque Estadual Cunhambebe, protegemos 38 mil hectares de Mata Atlântica na Costa Verde do Rio de Janeiro."
+                />
 
                 {/* Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -112,7 +106,7 @@ const PageTemplate = ({ title }) => {
                     </div>
                 </div>
 
-               
+
 
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Map, Clock, TrendingUp, Mountain, MapPin } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 // Importando imagens
 import caminhodasaguasImg from '../assets/Trilhas/caminhodasaguas.jpeg';
@@ -134,13 +135,6 @@ const Trilhas = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".trail-header", {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-
             gsap.from(".trail-card", {
                 y: 100,
                 opacity: 0,
@@ -163,33 +157,25 @@ const Trilhas = () => {
         <div ref={containerRef} className="bg-off-white min-h-screen pt-28 pb-20 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="trail-header text-center mb-16">
-                    <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-forest/5 mb-6">
-                        <Mountain className="text-forest w-8 h-8" />
-                    </div>
-                    <h1 className="text-5xl md:text-6xl text-forest font-display mb-6">
-                        Nossas Trilhas
-                    </h1>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Descubra a beleza escondida em cada caminho. De passeios tranquilos a desafios intensos,
-                        temos a aventura perfeita esperando por você.
-                    </p>
+                <PageHeader
+                    title="Nossas Trilhas"
+                    description="Descubra a beleza escondida em cada caminho. De passeios tranquilos a desafios intensos, temos a aventura perfeita esperando por você."
+                />
 
-                    {/* Filter Buttons */}
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {difficulties.map((level) => (
-                            <button
-                                key={level}
-                                onClick={() => setFilter(level)}
-                                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === level
-                                        ? 'bg-forest text-off-white shadow-lg scale-105'
-                                        : 'bg-white text-forest border border-forest/20 hover:bg-forest/5 hover:border-forest/50'
-                                    }`}
-                            >
-                                {level}
-                            </button>
-                        ))}
-                    </div>
+                {/* Filter Buttons */}
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    {difficulties.map((level) => (
+                        <button
+                            key={level}
+                            onClick={() => setFilter(level)}
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === level
+                                ? 'bg-forest text-off-white shadow-lg scale-105'
+                                : 'bg-white text-forest border border-forest/20 hover:bg-forest/5 hover:border-forest/50'
+                                }`}
+                        >
+                            {level}
+                        </button>
+                    ))}
                 </div>
 
                 {/* Trails List */}

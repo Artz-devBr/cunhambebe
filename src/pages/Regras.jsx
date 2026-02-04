@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ShieldAlert, CheckCircle2, Trees, Leaf, Flame, Volume2, Trash2, Tent, BadgeAlert, Ban } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 const rules = [
     { icon: ShieldAlert, text: "Você é responsável pela sua segurança" },
@@ -27,32 +28,22 @@ const PageTemplate = () => {
     useEffect(() => {
         const tl = gsap.timeline();
 
-        tl.from(titleRef.current, {
-            y: -30,
-            duration: 1,
-            ease: "power3.out"
-        })
-            .from(rulesRef.current, {
-                y: 30,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "back.out(1.2)"
-            }, "-=0.5");
+        tl.from(rulesRef.current, {
+            y: 30,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "back.out(1.2)"
+        }, "-=0.5");
 
     }, []);
 
     return (
         <div ref={containerRef} className="pt-32 min-h-screen bg-off-white px-6 pb-20">
             <div className="max-w-7xl mx-auto">
-                <div ref={titleRef} className="text-center mb-16">
-                    <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
-                        Normas de conduta do PEC
-                    </h1>
-                    <div className="w-24 h-1 bg-earth mx-auto mt-6 rounded-full"></div>
-                    <p className="mt-6 text-forest/70 font-medium tracking-wide max-w-2xl mx-auto">
-                        Para garantir a preservação do parque e a segurança de todos, por favor observe as seguintes regras.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Normas de conduta do PEC"
+                    description="Para garantir a preservação do parque e a segurança de todos, por favor observe as seguintes regras."
+                />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {rules.map((rule, index) => (

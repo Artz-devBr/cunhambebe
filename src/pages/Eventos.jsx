@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Calendar, MapPin, Clock, Info, ArrowRight, TreePine, Ticket, Camera, Users, AlertCircle, CheckCircle2 } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
 import veiospassaros1 from '../assets/matheus-vaio+passaro/veiospassaros1.jpeg';
 import veiospassaros2 from '../assets/matheus-vaio+passaro/veiospassaros2.jpeg';
 import veiospassaros3 from '../assets/matheus-vaio+passaro/veiospassaros3.jpeg';
 
 const featuredEvents = [
-    {                              
+    {
         id: 1,
         title: "Vem Passarinhar",
         date: "Domingos",
@@ -52,39 +53,26 @@ const Eventos = () => {
     useEffect(() => {
         const tl = gsap.timeline();
 
-        tl.from(headerRef.current, {
-            y: 50,
-            duration: 1,
-            ease: "power3.out"
-        })
-            .from(featuredRef.current.children, {
-                y: 30,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: featuredRef.current,
-                    start: "top 80%"
-                }
-            });
+        tl.from(featuredRef.current.children, {
+            y: 30,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: featuredRef.current,
+                start: "top 80%"
+            }
+        });
 
     }, []);
 
     return (
         <div className="min-h-screen bg-stone-50 text-forest pt-24 pb-20 font-sans">
             {/* Hero Section */}
-            <header ref={headerRef} className="container mx-auto px-6 mb-24 text-center">
-                <div className="inline-flex items-center justify-center p-3 bg-green-100 rounded-full mb-6 ring-1 ring-green-200">
-                    <TreePine className="w-5 h-5 text-green-700 mr-2" />
-                    <span className="text-sm font-bold tracking-wide text-green-800 uppercase">Eventos no Parque</span>
-                </div>
-                <h1 className="text-5xl md:text-7xl font-display uppercase tracking-tight mb-8 text-forest-dark leading-tight">
-                    Experiências únicas <br /> em meio à <span className="text-green-700 italic font-serif">natureza</span>
-                </h1>
-                <p className="text-xl text-forest/70 max-w-2xl mx-auto font-light leading-relaxed">
-                    Descubra nossa programação de lazer, cultura e aventura. Conecte-se com o ambiente natural do Parque Cunhambebe.
-                </p>
-            </header>
+            <PageHeader
+                title="Experiências na Natureza"
+                description="Descubra nossa programação de lazer, cultura e aventura. Conecte-se com o ambiente natural do Parque Cunhambebe."
+            />
 
             {/* Featured Events */}
             <section className="container mx-auto px-6 mb-32">

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import PageHeader from '../components/PageHeader';
 
 const PageTemplate = ({ title }) => {
     const containerRef = useRef(null);
@@ -16,13 +17,10 @@ const PageTemplate = ({ title }) => {
         <div ref={containerRef} className="pt-32 min-h-screen bg-off-white px-6 pb-20">
 
             {/* 1. CABEÇALHO DE BOAS-VINDAS */}
-            <div className="text-center mb-16">
-                <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
-                    Bem-vindos ao <br />
-                    <span className="text-earth italic font-light">Nosso Mapa</span>
-                </h1>
-                <div className="w-24 h-1 bg-earth mx-auto mt-6"></div>
-            </div>
+            <PageHeader
+                title={<>Nosso Mapa</>}
+                description="Explore a localização do Parque Estadual Cunhambebe, suas divisões territoriais e as melhores formas de acesso."
+            />
 
             {/* 2. SEÇÃO DE DIVISÃO TERRITORIAL (ESTILO JORNAL) */}
             <div className="max-w-5xl mx-auto border-t-2 border-b-2 border-forest py-8 mb-16">
