@@ -20,18 +20,18 @@ const Navbar = () => {
         { name: "Parceiros", path: "/parceiros" },
         { name: "Fale Conosco", path: "/fale-conosco" },
         { name: "Denuncie", path: "/denuncie" },
-        { name: "Ponto mais Próximo", path: "/mapa" },
+        { name: "Mapa", path: "/mapa" },
         { name: "Regras de Visitação", path: "/regras" },
     ];
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             gsap.to(navRef.current, {
-                backgroundColor: 'rgba(248, 250, 252, 0.95)',
-                backdropFilter: 'blur(10px)',
+                backgroundColor: 'rgba(248, 250, 252, 1)',
+                backdropFilter: 'blur(16px)',
                 scrollTrigger: {
                     start: 'top top',
-                    end: '+=100',
+                    end: '+=50',
                     scrub: true,
                 },
             });
@@ -48,7 +48,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent border-b border-transparent">
+        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-off-white backdrop-blur-sm border-b border-transparent transition-colors duration-300">
             <Link to="/" className="text-forest font-display text-2xl tracking-tighter">CUNHAMBEBE</Link>
 
             <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-forest items-center">

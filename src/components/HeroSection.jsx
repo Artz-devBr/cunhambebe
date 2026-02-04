@@ -96,7 +96,7 @@ const HeroSection = () => {
             />
 
             {/* Hero Content */}
-            <div className="relative z-20 text-center px-4">
+            <div className="relative z-40 text-center px-4">
                 <h1
                     ref={titleRef}
                     className="text-6xl md:text-9xl text-white drop-shadow-2xl leading-none"
