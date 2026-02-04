@@ -27,11 +27,13 @@ const Navbar = () => {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             gsap.to(navRef.current, {
-                backgroundColor: 'rgba(248, 250, 252, 1)',
+                backgroundColor: 'rgba(248, 250, 252, 0.8)', // off-white with opacity
+                color: '#0f281e', // forest color
                 backdropFilter: 'blur(16px)',
                 scrollTrigger: {
-                    start: 'top top',
-                    end: '+=50',
+                    trigger: "body", // Trigger based on body scroll
+                    start: 'top -10',
+                    end: 'top -20',
                     scrub: true,
                 },
             });
@@ -48,10 +50,10 @@ const Navbar = () => {
     };
 
     return (
-        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-off-white backdrop-blur-sm border-b border-transparent transition-colors duration-300">
-            <Link to="/" className="text-forest font-display text-2xl tracking-tighter">CUNHAMBEBE</Link>
+        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent text-white duration-300">
+            <Link to="/" className="font-display text-2xl tracking-tighter">CUNHAMBEBE</Link>
 
-            <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-forest items-center">
+            <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest items-center">
                 <Link to="/" className="hover:text-earth transition-colors">Início</Link>
 
                 {/* Dropdown Menu */}
@@ -61,7 +63,7 @@ const Navbar = () => {
                     </button>
                     <div ref={dropdownRef} className="absolute top-full left-0 hidden opacity-0 bg-off-white shadow-2xl rounded-md py-2 w-64 border border-forest/10 translate-y-[-10px]">
                         {menuItems.map((item) => (
-                            <Link key={item.path} to={item.path} className="block px-4 py-2 text-xs hover:bg-forest hover:text-white transition-colors">
+                            <Link key={item.path} to={item.path} className="block px-4 py-2 text-xs text-forest hover:bg-forest hover:text-white transition-colors">
                                 {item.name}
                             </Link>
                         ))}
@@ -69,7 +71,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <button className="md:hidden text-forest" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
         </nav>
