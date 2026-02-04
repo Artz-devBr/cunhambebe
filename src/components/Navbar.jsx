@@ -50,7 +50,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent text-white duration-300">
+        <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-forest/95 text-white duration-300 backdrop-blur-sm">
             <Link to="/" className="flex items-center gap-3 font-display text-2xl tracking-wide">
                 <img src="/logo.png" alt="Logo Cunhambebe" className="h-10 w-auto object-contain" />
                 CUNHAMBEBE
