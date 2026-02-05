@@ -390,7 +390,7 @@ const Denuncie = () => {
                             </div>
                             <div>
                                 <h3 className="text-sm font-bold text-forest/60 uppercase tracking-widest mb-1">Denúncia via Telefone (INEA)</h3>
-                                <p className="text-2xl md:text-3xl font-bold text-forest tracking-tight">(021) 2334-5974</p>
+                                <p className="text-2xl md:text-3xl font-bold text-forest tracking-wide">(021) 2334-5974</p>
                                 <div className="flex items-center gap-2 text-forest/70 text-sm font-medium mt-1">
                                     <Clock className="w-4 h-4" />
                                     <span>Seg a Sex, 10h às 17h</span>

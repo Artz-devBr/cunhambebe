@@ -29,7 +29,7 @@ const PageHeader = ({ title, description }) => {
 
     return (
         <div ref={headerRef} className="text-center mb-16 md:mb-24 relative z-10">
-            <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-wide">
                 {title}
             </h1>
             <div className="header-line w-24 h-1 bg-earth mx-auto mt-6 origin-center"></div>

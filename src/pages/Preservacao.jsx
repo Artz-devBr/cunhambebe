@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SectionTitle = ({ children, subtitle }) => (
     <div className="mb-12 text-center">
         <span className="text-earth font-medium tracking-widest uppercase text-sm block mb-2">{subtitle}</span>
-        <h2 className="text-4xl md:text-5xl font-display text-forest uppercase tracking-tight">{children}</h2>
+        <h2 className="text-4xl md:text-5xl font-display text-forest uppercase tracking-wide">{children}</h2>
         <div className="w-24 h-1 bg-earth mx-auto mt-6"></div>
     </div>
 );
@@ -218,7 +218,7 @@ const Preservacao = () => {
             <div className="bg-forest py-24 px-6 relative overflow-hidden">
                 <img src={heroBg} className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay grayscale" />
                 <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
-                    <h2 className="text-4xl md:text-6xl font-display text-white uppercase tracking-tight">Ajude a Preservar</h2>
+                    <h2 className="text-4xl md:text-6xl font-display text-white uppercase tracking-wide">Ajude a Preservar</h2>
                     <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
                         A preservação é um dever de todos. Ao visitar o parque, respeite as regras, não deixe lixo e proteja a natureza.
                     </p>

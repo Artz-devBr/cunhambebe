@@ -59,7 +59,7 @@ const PageTemplate = ({ title }) => {
             {/* 3. SEÇÃO: COMO CHEGAR (GUIA DE ACESSO) */}
             <div className="max-w-5xl mx-auto mb-20 bg-forest p-8 md:p-12 text-off-white shadow-2xl rounded-sm">
                 <div className="border-l-4 border-earth pl-6">
-                    <h3 className="text-3xl font-display uppercase tracking-tight mb-2">Como chegar ao Parque</h3>
+                    <h3 className="text-3xl font-display uppercase tracking-wide mb-2">Como chegar ao Parque</h3>
                     <p className="text-earth uppercase tracking-[0.2em] text-xs font-bold mb-8">Guia de Acesso e Localização</p>
                 </div>
 
@@ -140,7 +140,7 @@ const PageTemplate = ({ title }) => {
                             ></iframe>
                         </div>
 
-                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-tighter">
+                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-wide">
                             Visualização de Área: Angra
                         </div>
                     </div>
@@ -191,7 +191,7 @@ const PageTemplate = ({ title }) => {
                             ></iframe>
                         </div>
 
-                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-tighter">
+                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-wide">
                             Visualização de Área: Rio Claro
                         </div>
                     </div>
@@ -242,7 +242,7 @@ const PageTemplate = ({ title }) => {
                             ></iframe>
                         </div>
 
-                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-tighter">
+                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-wide">
                             Visualização de Área: Mangaratiba
                         </div>
                     </div>
@@ -293,7 +293,7 @@ const PageTemplate = ({ title }) => {
                             ></iframe>
                         </div>
 
-                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-tighter">
+                        <div className="absolute top-4 right-4 bg-forest text-off-white px-4 py-1 text-[10px] uppercase tracking-wide">
                             Visualização de Área: Itaguaí
                         </div>
                     </div>
