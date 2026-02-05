@@ -7,6 +7,14 @@ import veiospassaros1 from '../assets/matheus-vaio+passaro/veiospassaros1.jpeg';
 import veiospassaros2 from '../assets/matheus-vaio+passaro/veiospassaros2.jpeg';
 import veiospassaros3 from '../assets/matheus-vaio+passaro/veiospassaros3.jpeg';
 
+import comunitatio1 from '../assets/matheus-vaio+passaro/1.jfif';
+import comunitatio2 from '../assets/matheus-vaio+passaro/2.JPG';
+import comunitatio3 from '../assets/matheus-vaio+passaro/3.jfif';
+import comunitatio4 from '../assets/matheus-vaio+passaro/4.jfif';
+import comunitatio5 from '../assets/matheus-vaio+passaro/5.jpeg';
+import comunitatio6 from '../assets/matheus-vaio+passaro/6.JPG';
+import comunitatio7 from '../assets/matheus-vaio+passaro/7.JPG';
+
 const featuredEvents = [
     {
         id: 1,
@@ -24,7 +32,8 @@ const featuredEvents = [
         title: "Atividades Comunitárias",
         date: "Mensal",
         location: "Área de Convivência",
-        image: "",
+        image: comunitatio1,
+        gallery: [comunitatio1, comunitatio2, comunitatio3, comunitatio4, comunitatio5, comunitatio6, comunitatio7],
         category: "Cultura e Lazer",
         description: "Feiras de artesanato, rodas de conversa e oficinas que integram a população e valorizam a cultura local em meio à natureza.",
         highlight: false
