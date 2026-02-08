@@ -1,16 +1,13 @@
-# React + Vite
+🌿 Transformando a Mata Atlântica em Experiência Digital: Projeto Parque Cunhambebe 🌳 
+Recentemente, Iniciei o desenvolvimento de uma landing page focada no Parque Estadual Cunhambebe, e o resultado você confere no vídeo abaixo! 🚀
+Neste projeto, meu objetivo foi unir um design imersivo com uma navegação fluida para proporcionar ao usuário uma verdadeira jornada visual pela natureza do Rio de Janeiro.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Destaques técnicos do projeto:
+Next.js & React: Estrutura modular e foco em performance.
+GSAP (GreenSock): Implementação de animações de scroll e transições suaves, elevando o patamar do Motion Design da página.
+Tailwind CSS: Estilização responsiva e "clean", garantindo agilidade no desenvolvimento e fidelidade ao design.
 
-Currently, two official plugins are available:
+Componentização: Desenvolvi um sistema dinâmico para listar as trilhas e cachoeiras, com carrosséis interativos e detalhes de nível de dificuldade.
+Este projeto reforçou minhas habilidades em criar interfaces que não são apenas bonitas, mas também tecnicamente eficientes e acessíveis.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Estou em busca de novos desafios e oportunidades no desenvolvimento Front-end e Back-end Se você está buscando alguém focado em entregar código de qualidade e interfaces incríveis, vamos conversar!
