@@ -9,11 +9,16 @@
 }
 
 body {
-  @apply bg-off-white text-forest font-sans overflow-x-hidden;
+  @apply bg-off-white text-forest font-sans overflow-x-hidden leading-relaxed;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-display uppercase tracking-tight;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display uppercase tracking-wide;
 }
 
 /* GSAP Specific Styles */
@@ -33,7 +38,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%; /* Extra height for parallax movement */
+  height: 120%;
+  /* Extra height for parallax movement */
   background-size: cover;
   background-position: center;
 }

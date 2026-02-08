@@ -1,8 +1,13 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Mountain, Droplets, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const HighlightCard = ({ icon: Icon, title, description, image }) => {
+import trilhas from '../assets/trilhas.jpeg';
+import ruins from '../assets/historical-ruins.png';
+import veu1 from '../assets/Trilhas/veudanoiva.jpg';
+
+const HighlightCard = ({ icon: Icon, title, description, image, path }) => {
     const cardRef = useRef(null);
     const contentRef = useRef(null);
 
@@ -36,25 +41,27 @@ const HighlightCard = ({ icon: Icon, title, description, image }) => {
             onMouseLeave={handleMouseLeave}
             className="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer"
         >
-            <img
-                src={image}
-                alt={title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/20 to-transparent"></div>
+            <Link key={path} to={path} className="block px-4 py-2 text-xs hover:bg-forest hover:text-white transition-colors">
+                <img
+                    src={image}
+                    alt={title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/20 to-transparent"></div>
 
-            <div
-                ref={contentRef}
-                className="absolute inset-0 flex flex-col justify-end p-8 text-off-white"
-            >
-                <div className="bg-earth/20 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="text-earth" size={24} />
+                <div
+                    ref={contentRef}
+                    className="absolute inset-0 flex flex-col justify-end p-8 text-off-white"
+                >
+                    <div className="bg-earth/20 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <Icon className="text-earth" size={24} />
+                    </div>
+                    <h3 className="text-3xl mb-2">{title}</h3>
+                    <p className="text-sm text-off-white/70 leading-relaxed max-w-[250px]">
+                        {description}
+                    </p>
                 </div>
-                <h3 className="text-3xl mb-2">{title}</h3>
-                <p className="text-sm text-off-white/70 leading-relaxed max-w-[250px]">
-                    {description}
-                </p>
-            </div>
+            </Link>
         </div>
     );
 };
@@ -86,19 +93,22 @@ const HighlightsGrid = () => {
             icon: Mountain,
             title: "Trilhas",
             description: "Explore caminhos que levam a picos com vistas panorâmicas de tirar o fôlego.",
-            image: "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop"
+            image: trilhas,
+            path: "/trilhas"
         },
         {
             icon: Droplets,
             title: "Cachoeiras",
             description: "Banhe-se em águas cristalinas escondidas no denso coração da floresta.",
-            image: "https://images.unsplash.com/photo-1508459855340-fb63ac591728?q=80&w=1980&auto=format&fit=crop"
+            image: veu1,
+            path: "/cachoeiras"
         },
         {
             icon: ShieldCheck,
             title: "Preservação",
             description: "Conheça nossos projetos de monitoramento e proteção da fauna e flora local.",
-            image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1913&auto=format&fit=crop"
+            image: ruins,
+            path: "/preservacao"
         }
     ];
 

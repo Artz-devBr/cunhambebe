@@ -16,7 +16,7 @@ const PageTemplate = ({ title }) => {
     return (
         <div ref={containerRef} className="pt-32 min-h-screen flex items-center justify-center bg-off-white px-6">
             <div className="text-center">
-                <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-tighter">
+                <h1 className="text-5xl md:text-7xl font-display text-forest uppercase tracking-wide">
                     {title}
                 </h1>
                 <div className="w-24 h-1 bg-earth mx-auto mt-6"></div>

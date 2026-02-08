@@ -1,18 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 
-import veu1 from '../assets/Trilhas/Veu_noiva/veu_1.JPG';
-import veu2 from '../assets/Trilhas/Veu_noiva/veu_2.jpeg';
-import veu3 from '../assets/Trilhas/Veu_noiva/veu_3.jpeg';
-import img1 from '../assets/Trilhas/Caminho_das_aguas/caminho_1.jpeg';
-import img2 from '../assets/Trilhas/Caminho_das_aguas/caminho_2.jpeg';
-import pont1 from '../assets/Trilhas/ponte_bela/pont1.JPG';
-import pont2 from '../assets/Trilhas/ponte_bela/pont2.JPG';
-import paisg from '../assets/Trilhas/Veu_noiva/paisagem.jpeg';
-
-
-
+import veu1 from '../assets/Trilhas/veudanoiva.jpg';
+import img1 from '../assets/Trilhas/caminhodasaguas.jpeg';
+import pont1 from '../assets/Trilhas/pontebela.jpg';
+import paisg from '../assets/Trilhas/cachoeiraitingucu.jpg';
 
 
 const WaterfallCard = ({ number, name, difficulty, location, description, images, popular }) => {
@@ -65,19 +59,19 @@ const WaterfallCard = ({ number, name, difficulty, location, description, images
 
             {/* Right Side - Content */}
             <div className="flex-1 flex flex-col justify-center">
-                <h3 className="text-3xl font-display text-white uppercase tracking-wide mb-2">
+                <h3 className="text-3xl font-display text-forest uppercase tracking-wide mb-2">
                     <span className="opacity-60 mr-2">{number}.</span>
                     {name}
                 </h3>
 
                 {/* Difficulty Level */}
                 <div className="flex items-center gap-4 mb-3">
-                    <span className="text-sm font-bold uppercase tracking-wider text-green-200/70">Nível de Dificuldade</span>
+                    <span className="text-sm font-bold uppercase tracking-wider text-forest/50">Nível de Dificuldade</span>
                     <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
                             <div
                                 key={i}
-                                className={`w-3 h-3 rounded-full border border-[#00e676] ${i < difficulty ? 'bg-[#00e676]' : 'bg-transparent'
+                                className={`w-3 h-3 rounded-full border border-earth ${i < difficulty ? 'bg-earth' : 'bg-transparent'
                                     }`}
                             ></div>
                         ))}
@@ -85,20 +79,20 @@ const WaterfallCard = ({ number, name, difficulty, location, description, images
                 </div>
 
                 {/* Metadata Tags */}
-                <div className="flex flex-wrap gap-4 mb-4 text-xs font-semibold uppercase tracking-widest text-green-200/60">
+                <div className="flex flex-wrap gap-4 mb-4 text-xs font-semibold uppercase tracking-widest text-forest/60">
                     <span className="flex items-center gap-1">
                         <MapPin size={12} /> {location}
                     </span>
                 </div>
 
                 {/* Description */}
-                <p className="text-green-100/80 leading-relaxed tracking-wide mb-6">
+                <p className="text-forest/80 leading-relaxed tracking-wide mb-6">
                     {description}
                 </p>
 
                 {/* Action Button */}
                 <div>
-                    <button className="px-8 py-3 bg-[#00e676] text-white rounded-full font-medium hover:bg-green-500 transition-colors shadow-lg hover:shadow-green-500/20 transform hover:-translate-y-1">
+                    <button className="px-8 py-3 bg-earth text-white rounded-full font-medium hover:bg-earth/80 transition-all shadow-lg hover:shadow-earth/20 transform hover:-translate-y-1">
                         Ver excursões
                     </button>
                 </div>
@@ -127,9 +121,7 @@ const Cachoeiras = () => {
             location: "Muriqui",
             description: "É a joia da coroa do PEC. Uma queda espetacular de aproximadamente 50 metros que serpenteia o paredão rochoso. A trilha exige fôlego, com trechos de subida acentuada e raízes expostas, mas recompensa o visitante com uma piscina natural de águas geladas e uma vista privilegiada da vegetação nativa de Mata Atlântica.",
             images: [
-                veu1,
-                veu2,
-                veu3
+                veu1
             ]
         },
         {
@@ -139,9 +131,7 @@ const Cachoeiras = () => {
             location: "Vale do Sahy",
             description: "Um circuito refrescante que margeia o Rio Sahy. É a opção ideal para famílias e grupos que buscam contemplação sem grande esforço físico. O caminho apresenta diversos poços naturais de águas cristalinas e pequenas quedas, com trilhas sombreadas pela copa das árvores e terreno majoritariamente plano.",
             images: [
-                img1,
-                img2,
-
+                img1
             ]
         },
         {
@@ -151,37 +141,20 @@ const Cachoeiras = () => {
             location: "Serra do Piloto",
             description: "Situada na histórica Estrada Imperial, esta cachoeira combina natureza e história. O acesso é quase imediato a partir da estrada, sendo uma das mais acessíveis do parque. Suas águas calmas correm sob as ruínas da antiga ponte de pedra do período imperial, oferecendo um cenário fotográfico e um banho relaxante e seguro.",
             images: [
-                pont1,
-                pont2,
-
+                pont1
             ]
         }
     ];
 
     return (
-        <div className="min-h-screen relative pt-32 pb-24 px-6 md:px-12 text-white">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src={paisg}
-                    alt="Background"
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
-            </div>
-
+        <div className="min-h-screen bg-off-white pt-32 pb-24 px-6 md:px-12">
             <div ref={containerRef} className="max-w-6xl mx-auto relative z-10">
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl md:text-7xl font-display text-white uppercase tracking-wide shadow-sm">
-                        Cachoeiras
-                    </h1>
-                    <div className="w-24 h-1 bg-[#00e676] mx-auto mt-6 shadow-[0_0_15px_rgba(0,230,118,0.5)]"></div>
-                    <p className="mt-6 text-green-100/60 font-medium tracking-widest uppercase text-sm max-w-xl mx-auto">
-                        Descubra as joias líquidas escondidas em nossa reserva. Cada queda d'água conta uma história milenar de pedra e água.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Cachoeiras"
+                    description="Descubra as joias líquidas escondidas em nossa reserva. Cada queda d'água conta uma história milenar de pedra e água."
+                />
 
-                <div className="space-y-16">
+                <div className="space-y-24">
                     {waterfalls.map((item, index) => (
                         <WaterfallCard key={index} {...item} />
                     ))}
